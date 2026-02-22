@@ -16,15 +16,15 @@ export default function ComicsPage() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Comics Corner</h1>
-      <p className="text-gray-600 mb-8">
+      <p className="mb-8" style={{ color: 'var(--foreground-soft)' }}>
         Drawings and comics by Jwan. Add images to the public/comics folder to show them here.
       </p>
 
       <div className="space-y-8">
         {comics.map((src, i) => (
-          <figure key={i} className="border border-gray-200 rounded-lg overflow-hidden bg-white">
+          <figure key={i} className="border border-[var(--border)] rounded-lg overflow-hidden" style={{ backgroundColor: 'var(--paper)' }}>
             <img src={src} alt={`Comic ${i + 1}`} className="w-full max-w-2xl mx-auto block" />
-            <figcaption className="p-3 text-sm text-gray-500 border-t">
+            <figcaption className="p-3 text-sm border-t" style={{ borderColor: 'var(--border)', color: 'var(--foreground-soft)' }}>
               Comic {i + 1}
             </figcaption>
           </figure>
@@ -32,7 +32,7 @@ export default function ComicsPage() {
       </div>
 
       {comics.length === 0 && (
-        <p className="text-gray-500">No comics yet. Add images to public/comics/ to get started.</p>
+        <p style={{ color: 'var(--foreground-soft)' }}>No comics yet. Add images to public/comics/ to get started.</p>
       )}
     </div>
   )

@@ -9,12 +9,12 @@ export default function LibraryPage() {
   return (
     <div className="space-y-4">
       <div>
-        <h1 className="text-2xl font-bold">My Library</h1>
-        <p className="text-gray-600 mt-1">
+        <h1 className="text-3xl font-bold">My Library</h1>
+        <p className="mt-1" style={{ color: 'var(--foreground-soft)' }}>
           Search the internet for books, add them to your collection, and track papers and notes.
         </p>
       </div>
-      <div className="rounded-lg overflow-hidden border border-gray-200 bg-white">
+      <div className="rounded-lg overflow-hidden border border-[var(--border)]" style={{ backgroundColor: 'var(--paper)' }}>
         <iframe
           src={LIBRARY_URL}
           title="Jwan's Library - Search and collect books"
@@ -23,14 +23,9 @@ export default function LibraryPage() {
           referrerPolicy="no-referrer"
         />
       </div>
-      <p className="text-sm text-gray-500">
+      <p className="text-sm" style={{ color: 'var(--foreground-soft)' }}>
         If the library does not load,{' '}
-        <a
-          href={LIBRARY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:underline"
-        >
+        <a href={LIBRARY_URL} target="_blank" rel="noopener noreferrer">
           open it in a new tab
         </a>
         .
