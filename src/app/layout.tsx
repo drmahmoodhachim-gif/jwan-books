@@ -19,6 +19,7 @@ export default function RootLayout({
           <nav className="max-w-4xl mx-auto px-4 py-4 flex flex-wrap gap-4">
             <Link href="/" className="font-semibold text-lg">Jwan&apos;s Book Nook</Link>
             <Link href="/reviews" className="text-gray-600 hover:text-gray-900">My Book Reviews</Link>
+            <Link href="/library" className="text-gray-600 hover:text-gray-900">My Library</Link>
             <Link href="/comics" className="text-gray-600 hover:text-gray-900">Comics Corner</Link>
             <Link href="/ask-jwan" className="text-gray-600 hover:text-gray-900">Ask Jwan</Link>
             <Link href="/about" className="text-gray-600 hover:text-gray-900">About Me</Link>
