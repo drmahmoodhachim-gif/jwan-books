@@ -8,6 +8,7 @@ const navItems = [
   { href: '/reviews', label: 'My Book Reviews', icon: '📖' },
   { href: '/library', label: 'My Library', icon: '📚' },
   { href: '/comics', label: 'Comics Corner', icon: '✏️' },
+  { href: '/jwan-reading', label: 'Jwan Reading', icon: '📷' },
   { href: '/ask-jwan', label: 'Ask Jwan', icon: '✉️' },
   { href: '/about', label: 'About Me', icon: '👤' },
 ]
