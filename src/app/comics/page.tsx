@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import { assetPath } from '@/lib/assetPath'
 
 const comicsDir = path.join(process.cwd(), 'public/comics')
 
@@ -8,7 +7,7 @@ function getComicImages(): string[] {
   if (!fs.existsSync(comicsDir)) return []
   return fs.readdirSync(comicsDir)
     .filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f))
-    .map(f => assetPath(`/comics/${f}`))
+    .map(f => `/comics/${f}`)
 }
 
 export default function ComicsPage() {
@@ -16,6 +15,7 @@ export default function ComicsPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Comics Corner' }]} />
       <h1 className="text-3xl font-bold mb-4">Comics Corner</h1>
       <p className="text-gray-600 mb-8">
         Drawings and comics by Jwan. Add images to the public/comics folder to show them here.

@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import { assetPath } from '@/lib/assetPath'
 
 const albumDir = path.join(process.cwd(), 'public/jwan-reading')
 
@@ -9,7 +8,7 @@ function getAlbumImages(): string[] {
   return fs.readdirSync(albumDir)
     .filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f))
     .sort()
-    .map(f => assetPath(`/jwan-reading/${f}`))
+    .map(f => `/jwan-reading/${f}`)
 }
 
 export const metadata = {
@@ -22,6 +21,7 @@ export default function JwanReadingPage() {
 
   return (
     <div>
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Jwan Reading' }]} />
       <h1 className="text-3xl font-bold mb-4">Jwan Reading</h1>
       <p className="mb-8" style={{ color: 'var(--foreground-soft)' }}>
         Photos of Jwan enjoying books.
