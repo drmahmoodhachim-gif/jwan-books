@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export type Breadcrumb = { href?: string; label: string }
+export type Breadcrumb = { href: string; label: string }
 
 type BreadcrumbsProps = {
   items: Breadcrumb[]
@@ -19,7 +19,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
             {i === items.length - 1 ? (
               <span className="font-medium" style={{ color: 'var(--foreground)' }}>{item.label}</span>
             ) : (
-              <Link href={item.href} className="hover:underline">
+              <Link href={item.href!} className="hover:underline">
                 {item.label}
               </Link>
             )}
