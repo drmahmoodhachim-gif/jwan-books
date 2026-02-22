@@ -3,10 +3,12 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+const LIBRARY_URL = 'https://drmahmoodhachim-gif.github.io/jwan-library/'
+
 const navItems = [
   { href: '/', label: "Jwan's Book Nook", icon: '🏠' },
   { href: '/reviews', label: 'My Book Reviews', icon: '📖' },
-  { href: 'https://drmahmoodhachim-gif.github.io/jwan-library/', label: 'My Library', icon: '📚', external: true },
+  { href: LIBRARY_URL, label: 'My Library', icon: '📚', external: true },
   { href: '/comics', label: 'Comics Corner', icon: '✏️' },
   { href: '/jwan-reading', label: 'Jwan Reading', icon: '📷' },
   { href: '/ask-jwan', label: 'Ask Jwan', icon: '✉️' },
@@ -40,9 +42,7 @@ export function Nav() {
             key={href}
             href={href}
             className={`flex items-center gap-1.5 py-2 px-3 rounded min-h-[44px] ${
-              isCurrent
-                ? 'font-semibold text-[var(--accent)]'
-                : 'text-[var(--foreground-soft)] hover:text-[var(--accent)]'
+              isCurrent ? 'font-semibold text-[var(--accent)]' : 'text-[var(--foreground-soft)] hover:text-[var(--accent)]'
             }`}
             style={{ textDecoration: 'none' }}
             aria-current={isCurrent ? 'page' : undefined}
