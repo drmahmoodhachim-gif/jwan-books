@@ -42,27 +42,9 @@ Output goes to the `out/` folder (static HTML).
 
 ## Adding reviews
 
-Create a new `.md` file in `content/reviews/`:
+See **[HOW-TO-ADD-REVIEWS.md](HOW-TO-ADD-REVIEWS.md)** for step-by-step instructions.
 
-```markdown
----
-title: "Book Title"
-author: "Author Name"
-rating: 5
-date: "2026-02-22"
-cover: "/covers/filename.jpg"
-tags: ["tag1", "tag2"]
----
-
-### What this book is about
-...
-
-### My favorite part
-...
-
-### Who should read it?
-...
-```
+Quick version: Copy `content/reviews/_TEMPLATE.md`, rename it (e.g. `my-book-title.md`), fill it in, and push.
 
 ## Deploy to GitHub Pages
 

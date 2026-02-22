@@ -18,7 +18,7 @@ export interface Review {
 export function getReviewSlugs(): string[] {
   if (!fs.existsSync(reviewsDir)) return []
   return fs.readdirSync(reviewsDir)
-    .filter(f => f.endsWith('.md'))
+    .filter(f => f.endsWith('.md') && !f.startsWith('_'))
     .map(f => f.replace(/\.md$/, ''))
 }
 
