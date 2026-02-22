@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { getAllReviews } from '@/lib/reviews'
-import { assetPath } from '@/lib/assetPath'
 
 export default function ReviewsPage() {
   const reviews = getAllReviews()
@@ -19,7 +18,7 @@ export default function ReviewsPage() {
           >
             <div className="aspect-[2/3] bg-gray-100 flex items-center justify-center text-5xl">
               {review.cover ? (
-                <img src={review.cover} alt="" className="w-full h-full object-cover" />
+                <img src={assetPath(review.cover)} alt="" className="w-full h-full object-cover" />
               ) : (
                 '📖'
               )}
