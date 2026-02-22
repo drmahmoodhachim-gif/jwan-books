@@ -23,7 +23,7 @@ Use the **same Firebase project**. Add these variables in GitHub:
 
 ## Database rules
 
-In Firebase Console → **Realtime Database** → **Rules**, ensure `askJwan` is writable. Example:
+In Firebase Console → **Realtime Database** → **Rules**, ensure `askJwan` and `jwanLibrary` are writable. Example:
 
 ```json
 {
@@ -35,10 +35,16 @@ In Firebase Console → **Realtime Database** → **Rules**, ensure `askJwan` is
     "askJwan": {
       ".read": true,
       ".write": true
+    },
+    "jwanLibrary": {
+      ".read": true,
+      ".write": true
     }
   }
 }
 ```
+
+`jwanLibrary/books` stores books from My Library so they appear on the reviews page.
 
 ## Data path
 
