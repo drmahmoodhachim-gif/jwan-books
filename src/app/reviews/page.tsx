@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getAllReviews } from '@/lib/reviews'
+import { LibraryBooksSection } from '@/components/LibraryBooksSection'
 
 export default function ReviewsPage() {
   const reviews = getAllReviews()
