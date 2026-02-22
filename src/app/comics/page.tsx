@@ -1,5 +1,7 @@
 import fs from 'fs'
 import path from 'path'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { assetPath } from '@/lib/assetPath'
 
 const comicsDir = path.join(process.cwd(), 'public/comics')
 
@@ -7,7 +9,7 @@ function getComicImages(): string[] {
   if (!fs.existsSync(comicsDir)) return []
   return fs.readdirSync(comicsDir)
     .filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f))
-    .map(f => `/comics/${f}`)
+    .map(f => assetPath(`/comics/${f}`))
 }
 
 export default function ComicsPage() {
