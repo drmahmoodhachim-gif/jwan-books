@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 
 // Replace with your Formspree form ID: https://formspree.io
 const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'
@@ -39,7 +40,6 @@ export default function AskJwanPage() {
 
   return (
     <div>
-      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Ask Jwan' }]} />
       <h1 className="text-3xl font-bold mb-4">Ask Jwan</h1>
       <p className="text-gray-600 mb-6">
         Send Jwan a question or a nice message. A parent checks all messages before she sees them.
