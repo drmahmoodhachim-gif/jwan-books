@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getAllReviews } from '@/lib/reviews'
+import { assetPath } from '@/lib/assetPath'
 
 export default function HomePage() {
   const reviews = getAllReviews()
@@ -21,7 +22,7 @@ export default function HomePage() {
           <div className="flex gap-6 flex-wrap">
             <div className="w-24 h-36 bg-gray-100 rounded flex items-center justify-center text-4xl shrink-0">
               {featured.cover ? (
-                <img src={assetPath(featured.cover)} alt="" className="w-full h-full object-cover rounded" />
+                <img src={featured.cover} alt="" className="w-full h-full object-cover rounded" />
               ) : (
                 '📖'
               )}
