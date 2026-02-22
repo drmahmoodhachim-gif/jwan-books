@@ -45,8 +45,8 @@ export function LibraryProvider({ children }: { children: React.ReactNode }) {
       setBookToAdd(null)
     }
     iframe.addEventListener('load', handler)
-    const t = setTimeout(handler, 800)
-    return () => { clearTimeout(t); iframe.removeEventListener('load', handler) }
+    if (iframe.contentDocument?.readyState === 'complete') handler()
+    return () => iframe.removeEventListener('load', handler)
   }, [isOpen, bookToAdd])
 
   return (

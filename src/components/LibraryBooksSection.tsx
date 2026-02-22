@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { getFirebaseDb, isFirebaseConfigured } from '@/lib/firebase'
 import { ref, onValue } from 'firebase/database'
+import Link from 'next/link'
+import { assetPath } from '@/lib/assetPath'
 
 type LibraryBook = {
   id: string
@@ -11,7 +13,6 @@ type LibraryBook = {
   url?: string
   notes?: string
   status?: string
-  updatedAt?: number
 }
 
 export function LibraryBooksSection() {
@@ -43,7 +44,24 @@ export function LibraryBooksSection() {
             key={book.id}
             className="group border border-gray-200 rounded-lg overflow-hidden bg-white hover:shadow-lg transition"
           >
-            <div className="aspect-[2/3] bg-gray-100 flex items-center justify-center text-5xl">📖</div>
+            <div className="aspect-[2/3] bg-gray-100 flex items-center justify-center text-5xl overflow-hidden">
+              {book.cover_i ? (
+                <img
+                  src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  onError={(e) => { (e.currentTarget.nextElementSibling as HTMLElement)?.classList.remove('hidden'); e.currentTarget.style.display = 'none' }}
+                />
+              ) : book.url?.includes('openlibrary.org') ? (
+                <img
+                  src={`https://covers.openlibrary.org/b/olid/${book.url.split('/').pop()}-M.jpg`}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  onError={(e) => { (e.currentTarget.nextElementSibling as HTMLElement)?.classList.remove('hidden'); e.currentTarget.style.display = 'none' }}
+                />
+              ) : null}
+              <span className={(book.cover_i || book.url?.includes('openlibrary.org')) ? 'hidden' : ''}>📖</span>
+            </div>
             <div className="p-3">
               <h3 className="font-semibold text-sm group-hover:text-blue-600 line-clamp-2">{book.title}</h3>
               <p className="text-xs text-gray-500">{book.author}</p>

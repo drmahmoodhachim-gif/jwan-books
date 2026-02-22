@@ -19,7 +19,7 @@ export default async function ReviewPage({ params }: { params: { slug: string } 
       <div className="flex gap-6 mb-8 flex-wrap">
         <div className="w-32 h-48 bg-gray-100 rounded flex items-center justify-center text-5xl shrink-0">
           {review.cover ? (
-            <img src={assetPath(review.cover)} alt="" className="w-full h-full object-cover rounded" />
+            <img src={review.cover} alt="" className="w-full h-full object-cover rounded" />
           ) : (
             '📖'
           )}
@@ -37,6 +37,7 @@ export default async function ReviewPage({ params }: { params: { slug: string } 
           {review.tags.length > 0 && (
             <p className="text-sm text-gray-500 mt-2">{review.tags.join(', ')}</p>
           )}
+          <AddToLibraryButton title={review.title} author={review.author} className="text-blue-600 hover:underline text-sm mt-2 inline-block" />
         </div>
       </div>
 

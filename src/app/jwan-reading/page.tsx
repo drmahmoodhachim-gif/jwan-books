@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { assetPath } from '@/lib/assetPath'
 
 const albumDir = path.join(process.cwd(), 'public/jwan-reading')
@@ -23,7 +22,6 @@ export default function JwanReadingPage() {
 
   return (
     <div>
-      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Jwan Reading' }]} />
       <h1 className="text-3xl font-bold mb-4">Jwan Reading</h1>
       <p className="mb-8" style={{ color: 'var(--foreground-soft)' }}>
         Photos of Jwan enjoying books.
