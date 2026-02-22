@@ -12,35 +12,35 @@ export default async function ReviewPage({ params }: { params: { slug: string } 
 
   return (
     <article className="max-w-2xl">
-      <Link href="/reviews" className="mb-4 inline-block">
+      <Link href="/reviews" className="text-blue-600 hover:underline mb-4 inline-block">
         ← Back to reviews
       </Link>
 
       <div className="flex gap-6 mb-8 flex-wrap">
-        <div className="w-32 h-48 rounded flex items-center justify-center text-5xl shrink-0" style={{ backgroundColor: 'var(--border)' }}>
+        <div className="w-32 h-48 bg-gray-100 rounded flex items-center justify-center text-5xl shrink-0">
           {review.cover ? (
-            <img src={review.cover} alt="" className="w-full h-full object-cover rounded" />
+            <img src={assetPath(review.cover)} alt="" className="w-full h-full object-cover rounded" />
           ) : (
             '📖'
           )}
         </div>
         <div>
           <h1 className="text-2xl font-bold">{review.title}</h1>
-          <p style={{ color: 'var(--foreground-soft)' }}>{review.author}</p>
+          <p className="text-gray-600">{review.author}</p>
           <div className="flex gap-1 mt-2">
             {[...Array(5)].map((_, i) => (
-              <span key={i} className={i < review.rating ? 'text-[var(--star)]' : 'text-[var(--border)]'}>
+              <span key={i} className={i < review.rating ? 'text-amber-500' : 'text-gray-300'}>
                 ★
               </span>
             ))}
           </div>
           {review.tags.length > 0 && (
-            <p className="text-sm mt-2" style={{ color: 'var(--foreground-soft)' }}>{review.tags.join(', ')}</p>
+            <p className="text-sm text-gray-500 mt-2">{review.tags.join(', ')}</p>
           )}
         </div>
       </div>
 
-      <div className="prose max-w-none" style={{ color: 'var(--foreground)' }}>
+      <div className="prose prose-gray max-w-none">
         <div className="whitespace-pre-wrap">{review.content}</div>
       </div>
     </article>
